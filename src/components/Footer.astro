@@ -1,0 +1,18 @@
+---
+import { getCurrentYear } from '../utils/dateUtils';
+
+const currentYear = getCurrentYear();
+---
+<footer>
+    <p>© {currentYear} בית הכנסת שיח ישראל - כל הזכויות שמורות</p>
+</footer>
+
+<style>
+    footer {
+        text-align: center;
+        padding: 2rem 0;
+        color: #666;
+        margin-top: 2rem;
+        border-top: 1px solid #eee;
+    }
+</style>

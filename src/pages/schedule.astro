@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import PageHeader from '../components/PageHeader.astro';
+import PrayerTimes from '../components/PrayerTimes.astro';
+import Footer from '../components/Footer.astro';
+
+const weekdayTimes = [
+    { name: "שחרית", time: "7:00" },
+    { name: "מנחה", time: "13:30" },
+    { name: "ערבית", time: "21:00" }
+];
+
+const shabbatTimes = [
+    { name: "מנחה בערב שבת", time: "20 דקות אחרי הדלקת נרות" },
+    { name: "קבלת שבת", time: "בזמן" },
+    { name: "שחרית", time: "8:20" },
+    { name: "מנחה", time: "שעה לפני השקיעה" },
+    { name: "ערבית במוצאי שבת", time: "בזמן" }
+];
+---
+
+<Layout title="זמני תפילה - בית הכנסת שיח ישראל">
+    <Navigation />
+    <main>
+        <PageHeader 
+            title="זמני תפילה" 
+            subtitle="זמני התפילות עשויים להשתנות בחגים ומועדים מיוחדים"
+        />
+        
+        <div class="schedule-container">
+            <PrayerTimes 
+                weekdayTimes={weekdayTimes}
+                shabbatTimes={shabbatTimes}
+            />
+            
+            <div class="special-times card">
+                <h2 class="section-title">שיעורים קבועים</h2>
+                <div class="times-grid">
+                    <div class="time-item">
+                        <span class="time">20:00</span>
+                        <h3>שיעור דף יומי</h3>
+                        <p>כל יום</p>
+                    </div>
+                    <div class="time-item">
+                        <span class="time">19:00</span>
+                        <h3>שיעור הלכה</h3>
+                        <p>יום שלישי</p>
+                    </div>
+                    <div class="time-item">
+                        <span class="time">מוצ"ש</span>
+                        <h3>אבות ובנים</h3>
+                        <p>בחורף</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    .schedule-container {
+        display: grid;
+        gap: 2rem;
+    }
+    .times-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 1rem;
+    }
+    .time-item {
+        text-align: center;
+        padding: 1.5rem;
+        border-radius: 8px;
+        background: #f8f9fa;
+    }
+    .time {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: rgb(var(--accent));
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+    .time-item h3 {
+        margin: 0.5rem 0;
+        color: rgb(var(--accent-dark));
+    }
+    .time-item p {
+        margin: 0;
+        color: #666;
+    }
+</style>

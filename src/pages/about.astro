@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="אודות - בית הכנסת שיח ישראל">
+    <Navigation />
+    <main>
+        <Header title="אודות בית הכנסת" />
+        <div class="about-container">
+            <div class="history">
+                <h2>היסטוריה</h2>
+                <p>בית הכנסת שיח ישראל נוסד בשנת תש"ן (1990) על ידי קהילת יוצאי מרוקו בירושלים. מאז הקמתו, בית הכנסת משמש כמרכז רוחני פעיל המשלב מסורת, תפילה ולימוד תורה.</p>
+            </div>
+            <div class="community">
+                <h2>הקהילה שלנו</h2>
+                <p>קהילת בית הכנסת מונה כיום למעלה מ-100 משפחות, המקיימות חיי קהילה עשירים הכוללים שיעורי תורה, פעילויות חסד ואירועים קהילתיים.</p>
+            </div>
+            <div class="activities">
+                <h2>פעילויות</h2>
+                <ul>
+                    <li>שיעורי תורה יומיים</li>
+                    <li>פעילויות לילדים בשבתות</li>
+                    <li>אירועי חגים מיוחדים</li>
+                    <li>פרויקטים קהילתיים</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    .about-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+    .about-container > div {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h2 {
+        color: #345;
+        border-bottom: 2px solid #345;
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+    }
+    ul {
+        padding-right: 1.5rem;
+    }
+    li {
+        margin: 0.5rem 0;
+    }
+</style>

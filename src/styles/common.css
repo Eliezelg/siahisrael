@@ -1,0 +1,27 @@
+/* Common styles for cards */
+.card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+/* Common heading styles */
+.card h2 {
+    color: #345;
+    border-bottom: 2px solid #345;
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+/* Common list styles */
+.clean-list {
+    list-style: none;
+    padding: 0;
+}
+
+.clean-list li {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}

@@ -1,0 +1,17 @@
+---
+import type { PrayerTime } from '../../types/prayer';
+
+interface Props {
+    times: PrayerTime[];
+}
+
+const { times } = Astro.props;
+---
+<div class="weekday">
+    <h3>ימי חול</h3>
+    <ul>
+        {times.map(({ name, time }) => (
+            <li>{name}: <span>{time}</span></li>
+        ))}
+    </ul>
+</div>

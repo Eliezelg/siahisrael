@@ -1,0 +1,27 @@
+---
+interface Props {
+    phone?: string;
+    email?: string;
+    whatsapp?: string;
+}
+
+const { phone, email, whatsapp } = Astro.props;
+---
+<div class="card contact">
+    <h2>יצירת קשר</h2>
+    <ul class="clean-list">
+        {phone && <li>טלפון: <a href={`tel:${phone}`}>{phone}</a></li>}
+        {email && <li>דוא"ל: <a href={`mailto:${email}`}>{email}</a></li>}
+        {whatsapp && <li>וואטסאפ: <a href={`https://wa.me/${whatsapp}`} target="_blank">לחץ כאן</a></li>}
+    </ul>
+</div>
+
+<style>
+    .contact a {
+        color: var(--accent-light);
+        text-decoration: none;
+    }
+    .contact a:hover {
+        text-decoration: underline;
+    }
+</style>

@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Footer from '../components/Footer.astro';
+
+const photos = [
+    { 
+        src: '/synagogue-interior-1.jpg', 
+        alt: 'היכל בית הכנסת',
+        title: 'היכל בית הכנסת',
+        description: 'היכל התפילה המרכזי שלנו'
+    },
+    { 
+        src: '/synagogue-interior-2.jpg', 
+        alt: 'ארון הקודש',
+        title: 'ארון הקודש',
+        description: 'ארון הקודש המפואר'
+    },
+    { 
+        src: '/synagogue-exterior.jpg', 
+        alt: 'חזית בית הכנסת',
+        title: 'חזית בית הכנסת',
+        description: 'המבנה החיצוני של בית הכנסת'
+    }
+];
+---
+
+<Layout title="גלריה - בית הכנסת שיח ישראל">
+    <Navigation />
+    <main>
+        <PageHeader 
+            title="גלריה תמונות" 
+            subtitle="צפו בתמונות מבית הכנסת שלנו"
+        />
+        <div class="gallery">
+            {photos.map(photo => (
+                <div class="photo-card card">
+                    <div class="photo-wrapper">
+                        <img src={photo.src} alt={photo.alt} loading="lazy" />
+                    </div>
+                    <div class="photo-info">
+                        <h3>{photo.title}</h3>
+                        <p>{photo.description}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 2rem 0;
+    }
+    .photo-wrapper {
+        position: relative;
+        padding-top: 75%;
+        overflow: hidden;
+        border-radius: 12px 12px 0 0;
+    }
+    .photo-wrapper img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    .photo-card:hover img {
+        transform: scale(1.05);
+    }
+    .photo-info {
+        padding: 1.5rem;
+    }
+    .photo-info h3 {
+        margin: 0 0 0.5rem 0;
+        color: rgb(var(--accent-dark));
+    }
+    .photo-info p {
+        margin: 0;
+        color: #666;
+    }
+</style>

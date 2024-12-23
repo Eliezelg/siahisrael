@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="מיקום - בית הכנסת שיח ישראל">
+    <Navigation />
+    <main>
+        <PageHeader 
+            title="מיקום בית הכנסת"
+            subtitle="רחוב זנגוויל 11, ירושלים"
+        />
+        <div class="location-container">
+            <div class="map-card card">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.171317383016!2d35.174747475079315!3d31.765813034975636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d74f49f7d6f5%3A0xab6916a5c5bb3dae!2sIsrael%20Zangvill%2011%2C%20Jerusalem!5e0!3m2!1sfr!2sil!4v1734987265645!5m2!1sfr!2sil"                    width="100%"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                ></iframe>
+            </div>
+            <div class="info-grid">
+                <div class="info-card card">
+                    <div class="icon">🚌</div>
+                    <h3>תחבורה ציבורית</h3>
+                    <p>5 דקות הליכה מתחנת האוטובוס הקרובה</p>
+                </div>
+                <div class="info-card card">
+                    <div class="icon">🅿️</div>
+                    <h3>חניה</h3>
+                    <p>חניה זמינה ברחוב ללא תשלום</p>
+                </div>
+                <div class="info-card card">
+                    <div class="icon">♿️</div>
+                    <h3>נגישות</h3>
+                    <p>המבנה נגיש לבעלי מוגבלויות</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    .location-container {
+        display: grid;
+        gap: 2rem;
+    }
+    .map-card {
+        overflow: hidden;
+    }
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+    .info-card {
+        padding: 2rem;
+        text-align: center;
+    }
+    .icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    .info-card h3 {
+        color: rgb(var(--accent-dark));
+        margin: 0 0 0.5rem 0;
+    }
+    .info-card p {
+        margin: 0;
+        color: #666;
+    }
+</style>
